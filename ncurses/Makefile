@@ -19,9 +19,10 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2012, Joyent, Inc.  All rights reserved.
+# Copyright (c) 2018, Thierry Ghelew <tlux@ghelew.net>
 #
 
-VER =	ncurses-5.7
+VER =	ncurses-6.1
 
 include ../Makefile.defs
 
@@ -31,17 +32,14 @@ AUTOCONF_PREFIX =	/usr/gnu
 AUTOCONF_OPTS += \
 	-C \
 	--with-shared \
+	--with-termlib \
 	--without-normal
 
 AUTOCONF_OPTS.64 += \
 	--libdir=/usr/gnu/lib/amd64
 
 LDFLAGS +=	-R/usr/gnu/lib
-LDFLAGS.64 +=	-R/usr/gnu/lib/amd64
-
-PATCHES = \
-	ncurses-01-widec.diff \
-	ncurses-02-rpath.diff
+LDFLAGS.64 +=	-R/usr/gnu/lib/amd64 
 
 USRDIR =	$(DESTDIR)/usr
 
