@@ -65,6 +65,6 @@ upstream.
 ## Bugs and Contributing
 
 If you encounter any issues with the build process, please reach out to
-us and file a bug on http://github.com/joyent/illumos-extra/issues. Bug
+us and file a bug on http://github.com/tghelew/illumos-extra/issues. Bug
 fixes and other contributions are accepted, they should be submitted to
 the illumos-extra github repository.
