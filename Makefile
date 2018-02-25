@@ -50,6 +50,7 @@ SUBDIRS = \
 	gzip \
 	ipmitool \
 	less \
+	libevent \
 	libexpat \
 	libidn \
 	libidn2 \
@@ -73,6 +74,7 @@ SUBDIRS = \
 	screen \
 	socat \
 	tun \
+	tmux \
 	uuid \
 	vim \
 	wget \

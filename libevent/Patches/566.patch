@@ -1,0 +1,27 @@
+From f4b1ccdbfebeb09a83327972ce8fdf3820084d72 Mon Sep 17 00:00:00 2001
+From: Andreas Gustafsson <gson@gson.org>
+Date: Tue, 26 Sep 2017 19:23:29 +0300
+Subject: [PATCH] Do not crash when evhttp_send_reply_start() is called after a
+ timeout.
+
+This fixes the crash reported in issue #509.  The "would be nice"
+items discussed in #509 can be addressed separately.
+---
+ http.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/http.c b/http.c
+index f5a2ef931..82e333969 100644
+--- a/http.c
++++ b/http.c
+@@ -2820,6 +2820,10 @@ evhttp_send_reply_start(struct evhttp_request *req, int code,
+     const char *reason)
+ {
+ 	evhttp_response_code_(req, code, reason);
++
++	if (req->evcon == NULL)
++		return;
++
+ 	if (evhttp_find_header(req->output_headers, "Content-Length") == NULL &&
+ 	    REQ_VERSION_ATLEAST(req, 1, 1) &&
+ 	    evhttp_response_needs_body(req)) {

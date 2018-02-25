@@ -27,7 +27,6 @@ d usr/gnu/share 0755 root sys
 d usr/gnu/share/doc 0755 root other
 d usr/sbin 0755 root bin
 d usr/share 0755 root sys
-d usr/share/bhyve 0755 root sys
 d usr/share/lib 0755 root bin
 d usr/share/man 0755 root bin
 d usr/share/man/man1 0755 root bin
@@ -202,22 +201,28 @@ s usr/lib/libz.so.1=../../lib/libz.so.1
 f usr/lib/mdb/proc/v8.so 0555 root sys
 f usr/lib/mdb/proc/amd64/v8.so 0555 root sys
 # ncurses
-f usr/gnu/lib/amd64/libform.so.5.7 0755 root bin
-s usr/gnu/lib/amd64/libform.so.5=libform.so.5.7
-f usr/gnu/lib/amd64/libmenu.so.5.7 0755 root bin
-s usr/gnu/lib/amd64/libmenu.so.5=libmenu.so.5.7
-f usr/gnu/lib/amd64/libncurses.so.5.7 0755 root bin
-s usr/gnu/lib/amd64/libncurses.so.5=libncurses.so.5.7
-f usr/gnu/lib/amd64/libpanel.so.5.7 0755 root bin
-s usr/gnu/lib/amd64/libpanel.so.5=libpanel.so.5.7
-f usr/gnu/lib/libform.so.5.7 0755 root bin
-s usr/gnu/lib/libform.so.5=libform.so.5.7
-f usr/gnu/lib/libmenu.so.5.7 0755 root bin
-s usr/gnu/lib/libmenu.so.5=libmenu.so.5.7
-f usr/gnu/lib/libncurses.so.5.7 0755 root bin
-s usr/gnu/lib/libncurses.so.5=libncurses.so.5.7
-f usr/gnu/lib/libpanel.so.5.7 0755 root bin
-s usr/gnu/lib/libpanel.so.5=libpanel.so.5.7
+f usr/gnu/lib/amd64/libform.so.6.1 0755 root bin
+s usr/gnu/lib/amd64/libform.so.6=libform.so.6.1
+f usr/gnu/lib/amd64/libmenu.so.6.1 0755 root bin
+s usr/gnu/lib/amd64/libmenu.so.6=libmenu.so.6.1
+f usr/gnu/lib/amd64/libncurses.so.6.1 0755 root bin
+s usr/gnu/lib/amd64/libncurses.so.6=libncurses.so.6.1
+f usr/gnu/lib/amd64/libpanel.so.6.1 0755 root bin
+s usr/gnu/lib/amd64/libpanel.so.6=libpanel.so.6.1
+f usr/gnu/lib/libform.so.6.1 0755 root bin
+s usr/gnu/lib/libform.so.6=libform.so.6.1
+f usr/gnu/lib/libmenu.so.6.1 0755 root bin
+s usr/gnu/lib/libmenu.so.6=libmenu.so.6.1
+f usr/gnu/lib/libncurses.so.6.1 0755 root bin
+s usr/gnu/lib/libncurses.so.6=libncurses.so.6.1
+f usr/gnu/lib/libpanel.so.6.1 0755 root bin
+s usr/gnu/lib/libpanel.so.6=libpanel.so.6.1
+
+f usr/gnu/lib/amd64/libtinfo.so.6.1 0644 root bin
+s usr/gnu/lib/amd64/libtinfo.so.6=libtinfo.so.6.1
+f usr/gnu/lib/libtinfo.so.6.1 0644 root bin
+s usr/gnu/lib/libtinfo.so.6=libtinfo.so.6.1
+
 s usr/gnu/lib/terminfo=../share/terminfo
 d usr/gnu/share/doc/ncurses 0755 root bin
 f usr/gnu/share/doc/ncurses/README 0444 root bin
@@ -289,6 +294,7 @@ f usr/gnu/share/terminfo/x/xtermc 0644 root bin
 f usr/gnu/share/terminfo/x/xtermm 0644 root bin
 f usr/gnu/share/terminfo/x/xterms 0644 root bin
 f usr/gnu/share/terminfo/x/xterms-sun 0644 root bin
+
 # node.js
 d usr/node 0755 root bin
 d usr/node/0.10 0755 root bin
@@ -3021,8 +3027,6 @@ f usr/share/man/man1/screen.1 0444 root bin
 # socat
 f usr/bin/socat 0555 root bin
 f usr/share/man/man1/socat.1 0444 root bin
-# uefi-edk2
-# f usr/share/bhyve/uefi-csm-rom.bin 0644 root bin
 # uuid
 f usr/bin/uuid 0755 root bin
 f usr/share/man/man1/uuid.1 0644 root bin
@@ -4504,3 +4508,36 @@ f usr/bin/xz 0555 root bin
 s usr/bin/xzcat=xz
 f usr/lib/libjoy_lzma.so.5.2.1 0555 root bin
 s usr/lib/libjoy_lzma.so.5=libjoy_lzma.so.5.2.1
+# libevent
+d usr/lib/amd64 0755 root bin
+d usr/lib 0755 root bin
+f usr/lib/amd64/libevent-2.1.so.6.0.2 0755 root bin
+f usr/lib/amd64/libevent_core-2.1.so.6.0.2 0755 root bin
+f usr/lib/amd64/libevent_extra-2.1.so.6.0.2 0755 root bin
+f usr/lib/amd64/libevent_pthreads-2.1.so.6.0.2 0755 root bin
+
+f usr/lib/libevent-2.1.so.6.0.2 0755 root bin
+f usr/lib/libevent_core-2.1.so.6.0.2 0755 root bin
+f usr/lib/libevent_extra-2.1.so.6.0.2 0755 root bin
+f usr/lib/libevent_pthreads-2.1.so.6.0.2 0755 root bin
+
+s usr/lib/libevent_core-2.1.so.6=libevent_core-2.1.so.6.0.2
+s usr/lib/amd64/libevent_pthreads-2.1.so.6=libevent_pthreads-2.1.so.6.0.2
+s usr/lib/amd64/libevent_extra-2.1.so.6=libevent_extra-2.1.so.6.0.2
+s usr/lib/amd64/libevent-2.1.so.6=libevent-2.1.so.6.0.2
+s usr/lib/amd64/libevent_core-2.1.so.6=libevent_core-2.1.so.6.0.2
+s usr/lib/libevent-2.1.so.6=libevent-2.1.so.6.0.2
+s usr/lib/libevent_extra-2.1.so.6=libevent_extra-2.1.so.6.0.2
+s usr/lib/libevent_pthreads-2.1.so.6=libevent_pthreads-2.1.so.6.0.2
+#tmux
+d usr/gnu/share 0755 root bin
+d usr/gnu/share/terminfo 0755 root bin
+d usr/gnu/share/terminfo/x 0755 root bin
+d usr/gnu/share/terminfo/t 0755 root bin
+f usr/gnu/share/terminfo/x/xterm+tmux 0644 root bin
+f usr/gnu/share/terminfo/t/tmux 0644 root bin
+f usr/gnu/share/terminfo/t/tmux-256color 0644 root bin
+d usr/share/man/man1 0755 root bin
+f usr/share/man/man1/tmux.1 0644 root bin
+d usr/bin 0755 root bin
+f usr/bin/tmux 0755 root bin
